@@ -2,3 +2,7 @@ myenv/
 myvenv/
 venv/
 venv/*
+team12Hackathon-dispatcher/__pycache__/
+team12Hackathon-dispatcher/__pycache__/*
+team12Hackathon-dispatcher/.idea/
+team12Hackathon-dispatcher/.idea/*
