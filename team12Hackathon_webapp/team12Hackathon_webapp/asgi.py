@@ -1,5 +1,5 @@
 """
-ASGI config for team12Hackathon project.
+ASGI config for team12Hackathon_webapp project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'team12Hackathon.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'team12Hackathon_webapp.settings')
 
 application = get_asgi_application()
