@@ -1,5 +1,5 @@
 """
-WSGI config for team12Hackathon project.
+WSGI config for team12Hackathon_webapp project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'team12Hackathon.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'team12Hackathon_webapp.settings')
 
 application = get_wsgi_application()
