@@ -1,2 +1,4 @@
 myenv/
 myvenv/
+venv/
+venv/*
