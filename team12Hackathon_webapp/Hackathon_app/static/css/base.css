@@ -14,6 +14,21 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.23);
 }
 
 .rcorners3 {
-  border-radius: 15px 50px;
+  border-radius: 12px;
+
+}
+
+.fit_image{
+  height: 10vh;
+    width: 100%; /* only if you want fixed height */
+}
+.fit_image_1{
+  height: 8vh;
+    width: 100%; /* only if you want fixed height */
+}
+
+.move_img{
+
+  padding-left:  10px;
 
 }
