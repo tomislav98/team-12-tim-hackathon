@@ -32,3 +32,20 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.23);
   padding-left:  10px;
 
 }
+
+
+.center_custom {
+        margin: auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+
+.center_form {
+        margin-left: 250px; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+
+.custom_top_button{
+  margin-top: 15px;
+}
