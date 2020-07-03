@@ -2,11 +2,17 @@ from django.db import models
 from datetime import datetime
 
 class KindIconFeature(models.Model):
+    IMAGE_TYPE_CHOICES = [
+        ('SVG', 'SVG'),
+        ('PNG', 'PNG')
+    ]
+
     Id = models.AutoField(primary_key=True)
     Name = models.CharField(max_length=200, null=False)
     DisplayName = models.CharField(max_length=200)
     Description = models.CharField(max_length=2000)
-    Base64 = models.CharField(max_length=9999, null=False)
+    TypeImage =  models.PositiveSmallIntegerField(choices=IMAGE_TYPE_CHOICES)
+    Base64 = models.CharField(max_length=999999, null=False)
 
 
 class KindGenericDevice(models.Model):

@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 import json
 # Create your views here.
+from Hackathon_app.submodels.iot_models import BinDevice
+
 
 def homepage(request):
 
@@ -17,15 +19,20 @@ def modal(request):
 def map_view(request):
     print(request.GET)
     if request.method == 'GET' and request.GET: # if get request has data, it's a different call.
-        data = {
-            'bins' : [
-                {
-                    'id' : 1,
-                    'longitude' : 45.449903,
-                    'latitude' : 11.890073
-                }
-            ]
-        }
-        print("risposta json")
-        return JsonResponse(data)
+        bins = BinDevice.objects.all().prefetch_related('Icon')
+        res_bins = []
+        for b in bins:
+            res_bins.append({
+                'id' : b.Id,
+                'longitude' : b.LongitudePosition,
+                'latitude' : b.LatitudePosition,
+                'b64' : b.Icon.Base64,
+                'typeImage' : b.Icon.TypeImage
+            })
+        if bins:
+            data = {
+                'bins' : list(res_bins)
+            }
+            return JsonResponse(data)
+        return HttpResponse(status=204)
     return render(request, 'map.html',{})
