@@ -10,6 +10,9 @@ def homepage(request):
 def index(request):
     return render(request, 'index.html',{})
 
+def modal(request):
+    return render(request, 'modal.html',{})
+
 # this function renders map template with openlayers.
 def map_view(request):
     print(request.GET)
