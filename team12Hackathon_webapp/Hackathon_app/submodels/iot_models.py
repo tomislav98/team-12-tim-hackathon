@@ -6,7 +6,7 @@ class KindIconFeature(models.Model):
     Name = models.CharField(max_length=200, null=False)
     DisplayName = models.CharField(max_length=200)
     Description = models.CharField(max_length=2000)
-    Base64 = models.BinaryField(max_length=9999)
+    Base64 = models.CharField(max_length=9999, null=False)
 
 
 class KindGenericDevice(models.Model):
