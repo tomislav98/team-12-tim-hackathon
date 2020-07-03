@@ -15,4 +15,4 @@ class BinDevice(KindGenericDevice):
     LongitudePosition = models.FloatField(max_length=2000,null=False)
     LatitudePosition = models.FloatField(max_length=2000, null=False)
     Zone = models.CharField(max_length=2000,null=False)
-    LastUpdate = models.DateTimeField(default=datetime.utcnow())
+    LastUpdate = models.DateTimeField(auto_created=True)
