@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 from datetime import datetime
+from Hackathon_app.submodels.iot_models import *
 # Create your models here.
 
 class Role(models.Model):
@@ -19,10 +20,11 @@ class KindAction(models.Model):
     Type = models.CharField(max_length=2000)
     Description = models.CharField(max_length=2000)
     Score = models.FloatField(null=False)
-    StartDateValidation = models.DateTimeField(null=False, default=datetime.utcnow())
+    StartDateValidation = models.DateTimeField(null=False, auto_created=True)
     EndDateValidation = models.DateTimeField(null=True)
     Enabled =  models.BooleanField(null=False, default=True)
     Content = models.TextField()
+    BinDevice = models.ForeignKey(BinDevice, on_delete=models.CASCADE, null=True)
 
 
 class KindMission(models.Model):
@@ -30,7 +32,7 @@ class KindMission(models.Model):
     code = models.CharField(max_length=2000)
     DisplayName = models.CharField(max_length=2000)
     Description = models.CharField(max_length=2000)
-    StartDateValidation = models.DateTimeField(null=False, default=datetime.utcnow())
+    StartDateValidation = models.DateTimeField(null=False, auto_created=True)
     EndDateValidation = models.DateTimeField(null=True)
     Score = models.FloatField()
     KindActions = models.ManyToManyField(KindAction)
