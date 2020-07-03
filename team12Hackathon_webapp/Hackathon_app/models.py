@@ -24,6 +24,7 @@ class KindAction(models.Model):
     EndDateValidation = models.DateTimeField(null=True)
     Enabled =  models.BooleanField(null=False, default=True)
     Content = models.TextField()
+    BinDevice = models.ForeignKey(BinDevice, on_delete=models.CASCADE, null=True)
 
 
 class KindMission(models.Model):
