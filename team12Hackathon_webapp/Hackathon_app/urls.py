@@ -7,5 +7,6 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('modal/', views.modal, name='modal'),
     path('map/', views.map_view, name='map'),
+    path('profile/', views.profile, name='profile'),
 
     ]
