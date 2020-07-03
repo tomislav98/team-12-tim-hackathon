@@ -133,3 +133,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),
 'Hackathon_app/static',
 ]
 print("Qua si trova la cartella " + os.path.join(BASE_DIR, 'templates'))
+
+AUTH_USER_MODEL = 'Hackathon_app.User'

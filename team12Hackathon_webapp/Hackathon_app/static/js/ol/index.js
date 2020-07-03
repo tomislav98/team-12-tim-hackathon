@@ -29,7 +29,6 @@ const vector = new ol.layer.Vector({
 });
 
 
-
 const map = new ol.Map({
     target: 'map',
     layers: [
@@ -45,6 +44,19 @@ const map = new ol.Map({
         zoom: 18
     })
 });
+
+let dblClickInteraction;
+// find DoubleClickZoom interaction
+map.getInteractions().getArray().forEach(function(interaction) {
+  if (interaction instanceof ol.interaction.DoubleClickZoom) {
+    dblClickInteraction = interaction;
+  }
+});
+// remove from map
+if (dblClickInteraction){
+    map.removeInteraction(dblClickInteraction);
+}
+
 
 $.ajax({
 
