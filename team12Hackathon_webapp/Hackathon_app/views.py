@@ -18,6 +18,11 @@ def dashboard(request):
     return render(request, 'dashboard.html',{})
 
 @login_required(login_url='/accounts/login/')
+def coin(request):
+
+    return render(request, 'coin.html',{})
+
+@login_required(login_url='/accounts/login/')
 def missions(request):
         missions = KindMission.objects.all()
         missions = list(missions)

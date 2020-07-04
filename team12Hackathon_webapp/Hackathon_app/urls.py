@@ -8,5 +8,6 @@ urlpatterns = [
     path('missions/', views.missions, name='missions'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('map/bins', views.bins_map, name='bins'),
-path('map/reports', views.report_map, name='reports'),
+    path('map/reports', views.report_map, name='reports'),
+    path('coin/', views.coin, name='coin'),
     ]
