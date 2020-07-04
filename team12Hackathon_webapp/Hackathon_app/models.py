@@ -52,5 +52,5 @@ class KindMission(models.Model):
     KindActions = models.ManyToManyField(KindAction)
 
 class User(AbstractUser):
-  roles = models.ManyToManyField(Role)
+  roles = models.ManyToManyField(Role, blank=True)
   Missions = models.ManyToManyField(KindMission)
