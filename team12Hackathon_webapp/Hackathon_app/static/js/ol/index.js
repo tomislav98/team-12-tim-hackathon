@@ -23,6 +23,7 @@
 // iconFeature2.setStyle(iconStyle);
 
 let binFeatures = [];
+let reportFeatures = [];
 const source = new ol.source.Vector({});
 
 const clusterSource = new ol.source.Cluster({
@@ -90,24 +91,42 @@ map.on('pointermove', function (e) {
 
     let hit = map.forEachFeatureAtPixel(e.pixel, function (f) {
         selected = f;
-        console.log(f.get('features').length);
-        console.log(f.get('features')[0].get('bbInfo'));
-        const infoFeature = f.get('features')[0].get('bbInfo');
-        if (f.get('features') && f.get('features').length === 1) {
+        // console.log(f.get('features').length);
+        // console.log(f.get('features')[0].get('bbInfo'));
+        let infoFeature = null;
+        const infoBinFeature = f.get('features')[0].get('bbInfo');
+        const infoReportFeature = f.get('features')[0].get('reportInfo');
 
-            var coordinate = ol.proj.fromLonLat([infoFeature['longitude'], infoFeature['latitude']]);
-            var hdms = ol.coordinate.toStringHDMS(ol.proj.fromLonLat(coordinate));
-            $(element).attr('title', infoFeature['displayName']);
-            popup.setPosition(coordinate);
-            $(element).popover({
-                placement: 'top',
-                animation: false,
-                html: true,
-                content: `<p style="font-weight: bold">${infoFeature['kindAction']['name']}</p><p>${infoFeature['kindAction']['description']}</p><p>${infoFeature['kindAction']['score']} coin</p>`
+        if (f.get('features') &&f.get('features').length === 1) {
+            if (infoBinFeature){
+                infoFeature = infoBinFeature;
+                var coordinate = ol.proj.fromLonLat([infoFeature['longitude'], infoFeature['latitude']]);
+                // var hdms = ol.coordinate.toStringHDMS(ol.proj.fromLonLat(coordinate));
+                $(element).attr('title', infoFeature['displayName']);
+                popup.setPosition(coordinate);
+                $(element).popover({
+                    placement: 'top',
+                    animation: false,
+                    html: true,
+                    content: `<p style="font-weight: bold">${infoFeature['kindAction']['name']}</p><p>${infoFeature['kindAction']['description']}</p><p>${infoFeature['kindAction']['score']} coin</p>`
 
-            });
-            $(element).popover('show');
+                });
+                $(element).popover('show');
+            }
+            else if (infoReportFeature){
+                infoFeature = infoReportFeature;
+                $(element).attr('title', infoFeature['name']);
+                var coordinate = ol.proj.fromLonLat([infoFeature['longitude'], infoFeature['latitude']]);
+                popup.setPosition(coordinate);
+                $(element).popover({
+                    placement: 'top',
+                    animation: false,
+                    html: true,
+                    content: `<p style="font-weight: bold">${infoFeature['name']}</p><p>${infoFeature['description']}</p><p>${infoFeature['score']} coin</p>`
 
+                });
+                $(element).popover('show');
+            }
         }
         return true;
     });
@@ -175,6 +194,7 @@ $.ajax({
                 binFeatures.push(iconFeature);
             });
             vector.getSource().getSource().addFeatures(binFeatures);
+            console.debug(`${binFeatures.length} Bin features detected.`);
         }
 
 
@@ -205,10 +225,11 @@ $.ajax({
                     })
                 });
                 iconFeature.setStyle(iconStyle);
-                iconFeature.set('bbInfo', f);
-                binFeatures.push(iconFeature);
+                iconFeature.set('reportInfo', f);
+                reportFeatures.push(iconFeature);
             });
-            vector.getSource().getSource().addFeatures(binFeatures);
+            vector.getSource().getSource().addFeatures(reportFeatures);
+            console.debug(`${reportFeatures.length} Report features detected.`);
         }
     },
     error: function (request, error) {

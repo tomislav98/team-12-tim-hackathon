@@ -98,6 +98,8 @@ def report_map(request):
             'b64' : a.Report.Icon.Base64,
             'longitude' : a.Report.LongitudePosition,
             'latitude': a.Report.LatitudePosition,
+            'typeImage': a.Report.Icon.TypeImage,
+            'scale': a.Report.Icon.Scale
         })
     return JsonResponse({
         'reports' : res_actions
