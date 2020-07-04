@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    restart: always
+    environment:
+      - APP_PORT=5000
+      - APP_NAME_DB=db.sqlite3
+    container_name: team-12-hackathon-webapp
+    volumes:
+       - /root/db/:/db/
+    build: .
+    ports:
+       - "7766:5000"
