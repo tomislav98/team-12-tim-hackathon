@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="73" height="73" viewBox="0 0 73 73">
+    <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+        <circle cx="35.64" cy="35.64" r="35.64" stroke="#FFF"/>
+        <text fill="#FFF" font-family="Lato-Regular, Lato" font-size="25.92">
+            <tspan x="12.96" y="45.44">0/5</tspan>
+        </text>
+    </g>
+</svg>

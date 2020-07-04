@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Missions {% endblock %}
+
+{% block title_1 %} Welcome {% endblock %}
+
+ {% block content %}
+ <div class="container-fluid">
+   <div class="row">
+     <div class="col">
+       <h3>Le tue missioni di questo mese</h3>
+     </div>
+     <div class="w-100"></div>
+     <div class="col">
+       <span style="font-size:120%;"><p>Attiva le tue missioni preferite e scala la classifica.
+         <br>
+       Più coin raccogli e più premi ottieni!</p></span>
+
+     </div>
+   </div>
+</div>
+<br>
+
+<div class="container">
+  <h2>Le tue missioni attive</h2>
+<div class="row row-cols-2">
+
+
+
+<div class="col mb-2">
+  <div class="card mb-3 custom_color_card custom_container custom_card_radius" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <img src="{% static '/svg/icon-mission-1.svg' %}"  alt="..."  class="center_image" width="70" height="70">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">Energia</h5>
+          <p class="card-text">Per 5 giorni, ogni sera spegni tutti i device collegati alla corrente.</p>
+          <p class="card-text"><small class="text-muted">Questa missione scade tra 13 giorni</small></p>
+        </div>
+      </div>
+      <div class="col-md-3">
+      <img src="{% static '/svg/counter-mission-1.svg' %}" class="center_image" alt="..." width="70" height="70">
+    </div>
+    </div>
+  </div>
+    </div>
+
+    <div class="col mb-2">
+      <div class="card mb-3 custom_color_card custom_container custom_card_radius" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-3">
+            <img src="{% static '/svg/icon-mission-2.svg' %}"  alt="..."  class="center_image" width="70" height="70">
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title">LOCAL</h5>
+              <p class="card-text">Acquista da 3 negozi locali, prodotti a km zero</p>
+              <p class="card-text"><small class="text-muted">Questa missione scade tra 21 giorni</small></p>
+            </div>
+          </div>
+          <div class="col-md-3">
+          <img src="{% static '/svg/counter-mission-2.svg' %}" class="center_image" alt="..." width="70" height="70">
+        </div>
+        </div>
+      </div>
+
+        </div>
+
+
+
+
+
+        <div class="col mb-2">
+          <div class="card mb-3 custom_color_card custom_container custom_card_radius" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-3">
+                <img src="{% static '/svg/icon-mission-3.svg' %}"  alt="..."  class="center_image" width="70" height="70">
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h5 class="card-title">TRASPORTI</h5>
+                  <p class="card-text">Utilizza la bicicletta per almeno 3 spostamenti questo mese</p>
+                  <p class="card-text"><small class="text-muted">Questa missione scade tra 31 giorni</small></p>
+                </div>
+              </div>
+              <div class="col-md-3">
+              <img src="{% static '/svg/counter-mission-3.svg' %}" class="center_image" alt="..." width="70" height="70">
+            </div>
+            </div>
+          </div>
+
+            </div>
+
+
+
+            <div class="col mb-2">
+              <div class="card mb-3 custom_color_card custom_container custom_card_radius" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-3">
+                    <img src="{% static '/svg/icon-mission-4.svg' %}"  alt="..."  class="center_image" width="70" height="70">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h5 class="card-title">PLASTICA</h5>
+                      <p class="card-text">Porta in un cestino di raccolta BBetter 5 contenitori di plastica</p>
+                      <p class="card-text"><small class="text-muted">Questa missione scade tra 7 giorni</small></p>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                  <img src="{% static '/svg/counter-mission-4.svg' %}" class="center_image" alt="..." width="70" height="70">
+                </div>
+                </div>
+              </div>
+
+                </div>
+
+
+
+
+</div>
+</div>
+<br>
+<br>
+
+
+<div class="container">
+  <h2>Accetta nuove missioni</h2>
+<div class="row row-cols-2">
+
+
+
+<div class="col mb-2">
+  <div class="card mb-3 custom_color custom_container custom_card_radius" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <!-- <img src="{% static '/svg/icon-mission-1.svg' %}"  alt="..."  class="center_image" width="70" height="70"> -->
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">Energia</h5>
+          <p class="card-text">Per 5 giorni, ogni sera spegni tutti i device collegati alla corrente.</p>
+          <p class="card-text"><small class="text-muted">Questa missione scade tra 13 giorni</small></p>
+        </div>
+      </div>
+      <div class="col-md-3">
+
+      <img src="{% static '/svg/Icon-Padlock-Monochrome.svg' %}" class="center_image" alt="..." width="60" height="60">
+    </div>
+    </div>
+  </div>
+    </div>
+
+    <div class="col mb-2">
+      <div class="card mb-3 custom_color custom_container custom_card_radius" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-3">
+            <!-- <img src="{% static '/svg/icon-mission-2.svg' %}"  alt="..."  class="center_image" width="70" height="70"> -->
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title">LOCAL</h5>
+              <p class="card-text">Acquista da 3 negozi locali, prodotti a km zero</p>
+              <p class="card-text"><small class="text-muted">Questa missione scade tra 21 giorni</small></p>
+            </div>
+          </div>
+          <div class="col-md-3">
+          <img src="{% static '/svg/Icon-Padlock-Monochrome.svg' %}" class="center_image" alt="..." width="60" height="60">
+        </div>
+        </div>
+      </div>
+
+        </div>
+
+
+
+
+
+        <div class="col mb-2">
+          <div class="card mb-3 custom_color custom_container custom_card_radius" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-3">
+                <!-- <img src="{% static '/svg/icon-mission-3.svg' %}"  alt="..."  class="center_image" width="70" height="70"> -->
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h5 class="card-title">TRASPORTI</h5>
+                  <p class="card-text">Utilizza la bicicletta per almeno 3 spostamenti questo mese</p>
+                  <p class="card-text"><small class="text-muted">Questa missione scade tra 31 giorni</small></p>
+                </div>
+              </div>
+              <div class="col-md-3">
+              <img src="{% static '/svg/Icon-Padlock-Monochrome.svg' %}" class="center_image" alt="..." width="60" height="60">
+            </div>
+            </div>
+          </div>
+
+            </div>
+
+
+
+            <div class="col mb-2">
+              <div class="card mb-3 custom_color custom_container custom_card_radius" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-3">
+                    <!-- <img src="{% static '/svg/icon-mission-4.svg' %}"  alt="..."  class="center_image" width="70" height="70"> -->
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h5 class="card-title">PLASTICA</h5>
+                      <p class="card-text">Porta in un cestino di raccolta BBetter 5 contenitori di plastica</p>
+                      <p class="card-text"><small class="text-muted">Questa missione scade tra 7 giorni</small></p>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                  <img src="{% static '/svg/Icon-Padlock-Monochrome.svg' %}" class="center_image" alt="..." width="60" height="60">
+                </div>
+                </div>
+              </div>
+
+                </div>
+
+
+
+
+</div>
+</div>
+
+
+
+
+ {% endblock %}
