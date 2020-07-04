@@ -1,11 +1,12 @@
 /* My own css */
 
-.customMarginBar{
-  margin: 0%;
+.customMarginBar {
+    margin: 0%;
 }
-.customMargin{
 
-  margin: 2%;
+.customMargin {
+
+    margin: 2%;
 
 }
 
@@ -15,42 +16,91 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.23);
 }
 
 .rcorners3 {
-  border-radius: 12px;
+    border-radius: 12px;
 
 }
 
-.fit_image{
-  height: 10vh;
-    width: 100%; /* only if you want fixed height */
-}
-.fit_image_1{
-  height: 8vh;
+.fit_image {
+    height: 10vh;
     width: 100%; /* only if you want fixed height */
 }
 
-.move_img{
+.fit_image_1 {
+    height: 8vh;
+    width: 100%; /* only if you want fixed height */
+}
 
-  padding-left:  10px;
+.move_img {
+
+    padding-left: 10px;
 
 }
 
 
 .center_custom {
-        margin: auto; /* Added */
-        float: none; /* Added */
-        margin-bottom: 10px; /* Added */
+    margin: auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
 }
 
 .center_form {
-        margin-left: 250px; /* Added */
-        float: none; /* Added */
-        margin-bottom: 10px; /* Added */
+    margin-left: 250px; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
 }
 
-.custom_top_button{
-  margin-top: 15px;
+.custom_top_button {
+    margin-top: 15px;
 }
 
 .nav-item-custom-padding{
   padding: 15px 0 6px 30px;
+}
+
+.fixed-position-menu {
+    position: fixed;
+    z-index: 1000;
+    top: 90px;
+    right: 40px;
+}
+
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 8px;
+    text-align: center;
+}
+
+.btn-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.my-dropdown-toggle::after {
+    content: none;
+}
+
+.content-dropdown-custom{
+    top: 13% !important;
+    left: -48% !important;
+}
+
+.btn-primary-team12{
+    background-color: #4dd49c !important;
+    border-color: #4dd49c !important;
 }

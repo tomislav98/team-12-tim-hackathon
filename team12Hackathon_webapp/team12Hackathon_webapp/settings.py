@@ -13,8 +13,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+DB_FILE = open(os.path.join(BASE_DIR, 'database_path')).read().strip()
+print(f'Starting with base_dir = {BASE_DIR}')
+print(f'Starting with db_dir = {DB_FILE}')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -25,7 +27,7 @@ SECRET_KEY = 'drmd2uh63p2o*ldm)yd47$*$ul26!47vsgeo3n_s(ar*7u3wq='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['techlabcommunity.org', '127.0.0.1', 'localhost', '0.0.0.0']
 
 
 
@@ -86,7 +88,7 @@ CACHES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': DB_FILE,
     }
 }
 

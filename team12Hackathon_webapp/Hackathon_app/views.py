@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from Hackathon_app.models import KindMission
@@ -6,15 +7,17 @@ import json
 from Hackathon_app.models import KindAction
 from Hackathon_app.submodels.iot_models import BinDevice
 
-
+@login_required(login_url='/accounts/login/')
 def homepage(request):
 
     return render(request, 'base.html',{})
 
+@login_required(login_url='/accounts/login/')
 def dashboard(request):
 
     return render(request, 'dashboard.html',{})
 
+@login_required(login_url='/accounts/login/')
 def missions(request):
         missions = KindMission.objects.all()
         missions = list(missions)
@@ -24,17 +27,29 @@ def missions(request):
         return render(request, 'missions.html',context=context)
 
 
+@login_required(login_url='/accounts/login/')
+def index(request):
+    missions = KindMission.objects.all()
+    missions = list(missions)
+    missions_index = len(missions)
+    only_four = missions[:4]
+    context = {'missions': list(only_four), 'missions_index': missions_index}
+    return render(request, 'index.html',context=context)
 
+@login_required(login_url='/accounts/login/')
 def modal(request):
     return render(request, 'modal.html',{})
 
+@login_required(login_url='/accounts/login/')
 def profile(request):
     return render(request, 'profile.html',{})
 
 # this function renders map template with openlayers.
+@login_required(login_url='/accounts/login/')
 def map_view(request):
     return render(request, 'map.html',{})
 
+@login_required(login_url='/accounts/login/')
 def bins_map(request):
     if request.method != 'GET':
         return HttpResponse(status=403)
@@ -70,6 +85,7 @@ def bins_map(request):
         return JsonResponse(data)
     return HttpResponse(status=204)
 
+@login_required(login_url='/accounts/login/')
 def report_map(request):
     if request.method != 'GET':
         return HttpResponse(status=403)
@@ -87,6 +103,8 @@ def report_map(request):
             'b64' : a.Report.Icon.Base64,
             'longitude' : a.Report.LongitudePosition,
             'latitude': a.Report.LatitudePosition,
+            'typeImage': a.Report.Icon.TypeImage,
+            'scale': a.Report.Icon.Scale
         })
     return JsonResponse({
         'reports' : res_actions
