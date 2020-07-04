@@ -313,7 +313,7 @@
 
       <!-- ekaribu_logo_def.png -->
       <div class="fadeIn first">
-        <img style="margin: 20px 0 20px 0" src="{% static 'images/ekaribu_logo_def.png' %}" id="icon" alt="User Icon" />
+        <img style="margin: 20px 0 20px 0; " src="{% static 'svg/logo-bbetter.svg' %}" id="icon" alt="User Icon" />
       </div>
 
       <!-- Login Form -->
@@ -321,7 +321,7 @@
         {% csrf_token %}
         <input type="text" class="fadeIn second" name="username" placeholder="Username">
         <input type="password" class="fadeIn third" name="password" placeholder="Password">
-        <input type="submit" class="fadeIn fourth" value="Log In">
+        <input style="margin-top: 40px;" type="submit" class="fadeIn fourth" value="Log In">
       </form>
 
     </div>
