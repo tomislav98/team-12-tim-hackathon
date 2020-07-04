@@ -282,14 +282,16 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <span><p style="text-align:center; font-size:150%; margin: 0 0 0 0;">Hai qualcosa da segnalare?
+              <span><p style="text-align:center; font-size:150%; margin: 0 0 0 0;">Ci siamo quasi
             </p>
             </span>
-            <span><p style="text-align:center; font-size:100%; margin: 0 0 0 0;">Invia la tua segnalazione in meno di 1 minuto.
+            <span><p style="text-align:center; font-size:100%; margin: 0 0 0 0;">Ci siamo quasi
+            Conferma la categoria della segnalazione <br>
+            e aggiungi un messaggio se serve.
           </p>
           </span>
-          <span style=" font-weight: bold;"><p style="text-align:center; font-size:100%;">Per te subito 1 coin*
-            <img src="{% static '/svg/icon-coin.svg' %}" alt="">
+          <span><p style="text-align:center; font-size:80%; margin-top:5%;">Non volevi segnalare questo? <a href="#">Cambia categoria</a>
+
         </p>
         </span>
             </div>
@@ -310,14 +312,24 @@
 
 
         <div class="upload-drop-zone" id="drop-zone">
-         <span> <p>Trascina qui i tuoi file non più pesanti di 5MB </p> </span>
-       </div>
-       <div class="col text-center">
-         <button type="button" class="btn btn-primary">Avanti</button>
+          <div class="container">
+            <div class="row">
+          <div class="col-md-12 ">
+         <img src="{% static '/svg/icon-segnalazione-street.svg' %}" alt="">
+          </div>
+
+
+
+          </div>
+         </div>
        </div>
        <div class="col text-center" style="margin-top: 5%;">
-        <span> <p>*Appena il Comune verificherà la tua segnalazione ti verranno accreditati nuovi coin per ringraziarti! Ricorda, le tue buone azioni sono preziose per tutti. </p> </span>
+        <span> <p>Vuoi dare più informazioni su questa segnalazione? <br> <a href="#">Aggiungi un messaggio</a></p></span>
        </div>
+       <div class="col text-center">
+         <button type="button" class="btn btn-success">Invia segnalazione</button>
+       </div>
+
 
       </div>
       <div class="modal-footer">
@@ -342,41 +354,41 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <span><p style="text-align:center; font-size:150%; margin: 0 0 0 0;">Hai qualcosa da segnalare?
+              <span><p style="text-align:center; font-size:150%; margin: 0 0 0 0;">Hai vinto la tua segnalazione!
             </p>
             </span>
-            <span><p style="text-align:center; font-size:100%; margin: 0 0 0 0;">Invia la tua segnalazione in meno di 1 minuto.
+            <span><p style="text-align:center; font-size:100%; margin: 0 0 0 0;">
+            Grazie di aver contribuito a migliorare la città per te e per gli altri.
+            <br>
+            Continua così e scala la classifica dei cittadini più attivi!
           </p>
           </span>
-          <span style=" font-weight: bold;"><p style="text-align:center; font-size:100%;">Per te subito 1 coin*
-            <img src="{% static '/svg/icon-coin.svg' %}" alt="">
-        </p>
-        </span>
             </div>
+
             <div class="w-100"></div>
+              <div class="col">
+              </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <img src="{% static '/svg/icon-1-coin.svg'%}" alt="" class="center_image">
           </div>
         </div>
 
 
 
-        <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
-          <div class="form-inline">
-            <div class="form-group">
-              <input type="file" name="files[]" id="js-upload-files" multiple>
-            </div>
-            <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
-          </div>
-        </form>
 
 
-        <div class="upload-drop-zone" id="drop-zone">
-         <span> <p>Trascina qui i tuoi file non più pesanti di 5MB </p> </span>
-       </div>
+
+
        <div class="col text-center">
          <button type="button" class="btn btn-primary">Avanti</button>
        </div>
        <div class="col text-center" style="margin-top: 5%;">
-        <span> <p>*Appena il Comune verificherà la tua segnalazione ti verranno accreditati nuovi coin per ringraziarti! Ricorda, le tue buone azioni sono preziose per tutti. </p> </span>
+        <span> <p>Per il momento non hai altre segnalazioni?
+          <br>
+            <a href="#">Torna alla tua dashboard </a></p> </span>
        </div>
 
       </div>
