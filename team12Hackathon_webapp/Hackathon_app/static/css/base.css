@@ -109,3 +109,7 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.23);
   background-color: transparent !important;
     box-shadow: unset !important;
   }
+
+  .custom-margin{
+    margin-left: 15% !important;
+  }

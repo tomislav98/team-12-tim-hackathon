@@ -27,22 +27,8 @@ def missions(request):
         return render(request, 'missions.html',context=context)
 
 
-@login_required(login_url='/accounts/login/')
-def index(request):
-    missions = KindMission.objects.all()
-    missions = list(missions)
-    missions_index = len(missions)
-    only_four = missions[:4]
-    context = {'missions': list(only_four), 'missions_index': missions_index}
-    return render(request, 'index.html',context=context)
 
-@login_required(login_url='/accounts/login/')
-def modal(request):
-    return render(request, 'modal.html',{})
 
-@login_required(login_url='/accounts/login/')
-def profile(request):
-    return render(request, 'profile.html',{})
 
 # this function renders map template with openlayers.
 @login_required(login_url='/accounts/login/')

@@ -128,22 +128,23 @@
             <div class="sidebar-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item nav-item-custom-padding">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" href="{% url 'dashboard'%}">
                             <span data-feather="home"></span>
 
                             Overview <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item nav-item-custom-padding">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'map'%}">
                           <img src="{% static '/svg/icon-mappa-menu.svg' %}" alt="">
                             <!-- <span data-feather="file"></span> -->
                             La tua città
                         </a>
                     </li>
                     <li class="nav-item nav-item-custom-padding">
-                        <a class="nav-link" href="#">
-                            <img src="{% static '/svg/like.svg' %}" alt="">
+                        <a class="nav-link" href="{% url 'missions'%}">
+                            <img src="{% static '/svg/like.svg' %}" alt="" style="  margin: -8% 0 0 0;">
+
                             <!-- <span data-feather="shopping-cart"></span> -->
                             Missioni
                         </a>
@@ -168,7 +169,7 @@
             </div>
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 custom-margin">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom background_color">
                 <h1 class="h2">{% block title_1 %} Homepage {% endblock %}</h1>
             </div>
