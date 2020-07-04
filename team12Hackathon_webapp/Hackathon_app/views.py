@@ -16,16 +16,14 @@ def dashboard(request):
     return render(request, 'dashboard.html',{})
 
 def missions(request):
+        missions = KindMission.objects.all()
+        missions = list(missions)
+        missions_index = len(missions)
+        only_four = missions[:4]
+        context = {'missions': list(only_four), 'missions_index': missions_index}
+        return render(request, 'missions.html',context=context)
 
-    return render(request, 'missions.html',{})
 
-def index(request):
-    missions = KindMission.objects.all()
-    missions = list(missions)
-    missions_index = len(missions)
-    only_four = missions[:4]
-    context = {'missions': list(only_four), 'missions_index': missions_index}
-    return render(request, 'index.html',context=context)
 
 def modal(request):
     return render(request, 'modal.html',{})

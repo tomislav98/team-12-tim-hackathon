@@ -25,6 +25,13 @@
   width: 50%;
 }
 
+.center_font {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .custom_card_radius{
   border-radius: 10px;
 

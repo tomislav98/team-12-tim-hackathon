@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="38" viewBox="0 0 130 38">
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#1D2C3C" font-family="Lato-Black, Lato" font-size="24" font-weight="700">
+            <tspan x="41.96" y="24">BBetter</tspan>
+        </text>
+        <text fill="#1D2C3C" font-family="Lato-Regular, Lato" font-size="7.2" letter-spacing="1.32">
+            <tspan x="41.96" y="35.8">INSIEME È MEGLIO.</tspan>
+        </text>
+        <g fill-rule="nonzero">
+            <path fill="#0A326D" d="M2.592 3.78c0-1.612 1.274-2.922 2.84-2.922h5.891l3.31 2.08h4.807v3.349c-.43-.234-.919-.367-1.438-.367h-2.271v3.812l-4.438 2.79H7.14v-.64c0-.816.645-1.48 1.438-1.48h2.027V8.706H2.592V3.78z" transform="translate(0 5)"/>
+            <path fill="#60E5A1" d="M7.848 28.074H2.922C1.311 28.074 0 26.8 0 25.234v-5.892l2.08-3.308v-4.808h3.35c-.235.43-.367.919-.367 1.437v2.272h3.811l2.79 4.437v4.154h-.64c-.816 0-1.48-.645-1.48-1.438V20.06H7.849v8.013z" transform="translate(0 5)"/>
+            <path fill="#14AEA6" d="M27.216 27.744c0 1.61-1.274 2.922-2.84 2.922h-5.891l-3.31-2.08h-4.807v-3.35c.43.234.919.367 1.438.367h2.271v-3.812l4.438-2.79h4.153v.64c0 .816-.645 1.48-1.438 1.48h-2.027v1.697h8.013v4.926z" transform="translate(0 5)"/>
+            <path fill="#0073FF" d="M29.808 12.18l-2.08 3.31v4.808h-3.35c.235-.43.367-.92.367-1.438v-2.272h-3.811l-2.79-4.437V7.998h.64c.816 0 1.48.645 1.48 1.437v2.027h1.696V3.45h4.926c1.611 0 2.922 1.274 2.922 2.84v5.89z" transform="translate(0 5)"/>
+        </g>
+    </g>
+</svg>
