@@ -1,53 +1,64 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+{% block title %} Profile  {% endblock %}
 
-{% block title %} Index  {% endblock %}
-
-{% block title_1 %} Welcome {% endblock %}
+{% block title_1 %} Welcome to your profile {% endblock %}
 
  {% block content %}
 
-
-<br>
-
-
-
-
 <div class="container">
-  <h3>ciao</h3>
   <div class="row">
-    {% for m in missions %}
-    <div class="col">
-      <div class="col mb-2">
-        <div class="card mb-3 custom_container rcorners3 " style="max-width: 540px;">
-        <div class="row no-gutters" style="height: 11vh;">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{m.Description}}</h5>
-            <p class="card-text">This is a wider</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <img src="{% static '/svg/Xapa-Relleu.svg' %}" class="card-img fit_image" alt="...">
-        </div>
-        </div>
-        </div>
-      </div>
-        </div>
-    {% if  forloop.counter  == 2 %}
-    <div class="w-100"></div>
-    {% elif  forloop.counter  == 4 %}
-      <div class="w-100"></div>
-    {% endif %}
-    {% endfor %}
+ <div class="card center_custom rounded" style="width: 18rem;">
+   <img src="{% static '/svg/avatar.jpg'%}" class="card-img-top" alt="...">
+   <div class="card-body">
+     <h5 class="card-title">User name</h5>
+     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   </div>
+   <ul class="list-group list-group-flush">
+     <li class="list-group-item list-group-item-action list-group-item-dark">Cras justo odio</li>
+     <li class="list-group-item list-group-item-action list-group-item-light">Dapibus ac facilisis in</li>
+     <li class="list-group-item list-group-item-action list-group-item-dark">Vestibulum at eros</li>
+   </ul>
+ </div>
+ </div>
+ </div>
+ <br>
+
+
+
+
+
+ <form>
+  <div class="form-row">
+    <div class="col col-md-4 center_form">
+      <label for="inputEmail4"><strong>New password</strong></label>
+      <input type="text" class="form-control" placeholder="First name">
+      <div class="form-group row">
+  <div class="col-sm-10 custom_top_button">
+    <button type="submit" class="btn btn-primary">Confirm</button>
   </div>
 </div>
+    </div>
+    <div class="col col-md-4">
+        <label for="inputEmail4"><strong>Confirm the password</strong></label>
+      <input type="text" class="form-control" placeholder="Last name">
+      <div class="form-group row">
+  <div class="col-sm-10 custom_top_button">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</div>
+    </div>
+  </div>
+</form>
+
+
+
+
+
 
 
 <div class="container">
-
   <div class="row row-cols-2">
     <div class="col">
       <h3>ciao</h3>
@@ -57,7 +68,7 @@
         <div class="row no-gutters" style="height: 8vh;">
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Completed action</h5>
             <p class="card-text">This is a wider</p>
           </div>
         </div>
@@ -71,7 +82,7 @@
 
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Score</h5>
               <p class="card-text">This is a wider</p>
             </div>
           </div>
@@ -91,7 +102,7 @@
           </div>
         <div class="col-md-5">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Completed mission</h5>
             <p class="card-text">This is a destra</p>
           </div>
         </div>
@@ -173,6 +184,11 @@
           </div>
   </div>
 </div>
-<script src="{% static '/js/all.min.js' %}"></script>
+
+
+
+
+
+
 
   {% endblock %}

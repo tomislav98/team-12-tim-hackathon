@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
+from Hackathon_app.models import KindMission
 import json
 # Create your views here.
 from Hackathon_app.models import KindAction
@@ -11,10 +12,18 @@ def homepage(request):
     return render(request, 'base.html',{})
 
 def index(request):
-    return render(request, 'index.html',{})
+    missions = KindMission.objects.all()
+    missions = list(missions)
+    missions_index = len(missions)
+    only_four = missions[:4]
+    context = {'missions': list(only_four), 'missions_index': missions_index}
+    return render(request, 'index.html',context=context)
 
 def modal(request):
     return render(request, 'modal.html',{})
+
+def profile(request):
+    return render(request, 'profile.html',{})
 
 # this function renders map template with openlayers.
 def map_view(request):

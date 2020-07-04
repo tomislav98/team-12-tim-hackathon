@@ -57,7 +57,7 @@ ROOT_URLCONF = 'team12Hackathon_webapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), 'Hackathon_app/templates/profile/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
