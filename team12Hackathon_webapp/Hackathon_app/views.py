@@ -8,6 +8,14 @@ def homepage(request):
 
     return render(request, 'base.html',{})
 
+def dashboard(request):
+
+    return render(request, 'dashboard.html',{})
+
+def missions(request):
+
+    return render(request, 'missions.html',{})
+
 def index(request):
     missions = KindMission.objects.all()
     missions = list(missions)

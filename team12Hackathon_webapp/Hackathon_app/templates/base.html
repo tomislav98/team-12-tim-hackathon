@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{% static 'dashboard_tools/css/dashboard.css' %}">
     <link rel="stylesheet" href="{% static '/css/base.css' %}">
     <link rel="stylesheet" href="{% static '/css/ol/ol.css' %}">
+    <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/card.css' %}">
 <script src="{% static 'jquery-3.5.1.min.js' %}"></script>
     <script src="{% static 'js/ol/ol.js' %}"></script>
 <style>
@@ -29,13 +31,89 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+<nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <input class="form-control form-control-dark w-75" type="text" placeholder="Search" aria-label="Search">
+
+
+
+    <ul class="navbar-nav px-1">
+        <li class="nav-item text-nowrap">
+            <img src="{% static '/svg/icon-coin.svg' %}" alt="">
+        </li>
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:150%;"><p class="customMarginBar">2140</p></span>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:130%;"><p class="customMarginBar">I tuoi coin</p></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+
+    <ul class="navbar-nav px-1">
+        <li class="nav-item text-nowrap">
+            <img src="{% static '/svg/icon-segnalazioni.svg' %}" alt="">
+        </li>
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:150%;"><p class="customMarginBar">43</p></span>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:130%;"><p class="customMarginBar">Le tue segnalazioni</p></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+    <ul class="navbar-nav px-1">
+        <li class="nav-item text-nowrap">
+            <img src="{% static '/svg/icon-mission.svg' %}" alt="">
+        </li>
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:150%;"><p class="customMarginBar">3</p></span>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:130%;"><p class="customMarginBar">Mission completed</p></span>
+
+        </li>
+    </ul>
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:250%;"><i class="far fa-bell"></i></span>
+        </li>
+    </ul>
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <img src="{% static '/svg/avatar.jpg' %}" class="rounded-circle" alt="Cinque Terre" style="width: 3rem;">
+        </li>
+    </ul>
+
+
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
             <a class="nav-link" href="{% url  'logout' %}">Sign out</a>
@@ -51,33 +129,37 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">
                             <span data-feather="home"></span>
-                            Home <span class="sr-only">(current)</span>
+
+                            Overview <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <span data-feather="file"></span>
-                            Orders
+                          <img src="{% static '/svg/icon-mappa-menu.svg' %}" alt="">
+                            <!-- <span data-feather="file"></span> -->
+                            La tua città
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <span data-feather="shopping-cart"></span>
-                            Products
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="users"></span>
-                            Customers
+                            <img src="{% static '/svg/like.svg' %}" alt="">
+                            <!-- <span data-feather="shopping-cart"></span> -->
+                            Missioni
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="bar-chart-2"></span>
-                            Reports
+                            Coin e premi
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Community
+                        </a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="layers"></span>
@@ -161,6 +243,7 @@
 
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static '/js/all.min.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 <script src="{% static 'dashboard_tools/js/dashboard.js' %}"></script>
