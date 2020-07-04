@@ -27,7 +27,7 @@ SECRET_KEY = 'drmd2uh63p2o*ldm)yd47$*$ul26!47vsgeo3n_s(ar*7u3wq='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['techlabcommunity.org', '127.0.0.1', 'localhost', '0.0.0.0']
 
 
 
