@@ -1,11 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
-from Hackathon_app.models import KindMission
+from Hackathon_app.models import KindMission, ReportMap
 import json
 # Create your views here.
 from Hackathon_app.models import KindAction
 from Hackathon_app.submodels.iot_models import BinDevice
+from django_restful_admin import admin as api_admin
 
 @login_required(login_url='/accounts/login/')
 def homepage(request):

@@ -31,6 +31,28 @@ const clusterSource = new ol.source.Cluster({
     source: source
 });
 
+
+var vectorHeatmap = new ol.layer.Heatmap({
+  source: new ol.source.Vector({
+    url: '/static/kml/Middle-Earth.kml',
+    format: new ol.format.KML({
+      extractStyles: false
+    })
+  }),
+  blur: 4,
+  radius: 20,
+  weight: function(feature) {
+    // 2012_Earthquakes_Mag5.kml stores the magnitude of each earthquake in a
+    // standards-violating <magnitude> tag in each Placemark.  We extract it from
+    // the Placemark's name instead.
+    var name = feature.get('name');
+    var magnitude = parseFloat(name.substr(2));
+    return magnitude - 5;
+  }
+});
+
+
+
 let styleCache = {};
 const vector = new ol.layer.Vector({
     source: clusterSource,
@@ -73,11 +95,12 @@ const map = new ol.Map({
                 url: 'http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}'
             })
         }),
-        vector
+        vector,
+        vectorHeatmap
     ],
     view: new ol.View({
         center: ol.proj.fromLonLat([11.888854, 45.449484]),
-        zoom: 18
+        zoom: 8
     })
 });
 var selected = null;

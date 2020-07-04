@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #own
     'Hackathon_app',
+    'rest_framework',
+    'django_restful_admin',
+    'service_objects',
 ]
 
 MIDDLEWARE = [
