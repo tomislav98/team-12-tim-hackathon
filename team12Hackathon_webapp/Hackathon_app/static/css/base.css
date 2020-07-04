@@ -9,10 +9,8 @@
 
 }
 
-.custom_container:hover{
-  cursor: pointer;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.23);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.23);
+.custom_container{
+
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.23);
 }
 
@@ -51,4 +49,8 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.23);
 
 .custom_top_button{
   margin-top: 15px;
+}
+
+.nav-item-custom-padding{
+  padding: 15px 0 6px 30px;
 }
