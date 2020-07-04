@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 import json
 # Create your views here.
+from Hackathon_app.models import KindAction
 from Hackathon_app.submodels.iot_models import BinDevice
 
 
@@ -17,22 +18,61 @@ def modal(request):
 
 # this function renders map template with openlayers.
 def map_view(request):
-    print(request.GET)
-    if request.method == 'GET' and request.GET: # if get request has data, it's a different call.
-        bins = BinDevice.objects.all().prefetch_related('Icon')
-        res_bins = []
-        for b in bins:
-            res_bins.append({
-                'id' : b.Id,
-                'longitude' : b.LongitudePosition,
-                'latitude' : b.LatitudePosition,
-                'b64' : b.Icon.Base64,
-                'typeImage' : b.Icon.TypeImage
-            })
-        if bins:
-            data = {
-                'bins' : list(res_bins)
-            }
-            return JsonResponse(data)
-        return HttpResponse(status=204)
     return render(request, 'map.html',{})
+
+def bins_map(request):
+    if request.method != 'GET':
+        return HttpResponse(status=403)
+    bins = BinDevice.objects.all().prefetch_related('Icon')
+    res_bins = []
+    for b in bins:
+        kind_action = KindAction.objects.filter(BinDevice__Id=b.Id)
+        bin = {
+            'id' : b.Id,
+            'longitude' : b.LongitudePosition,
+            'latitude' : b.LatitudePosition,
+            'b64' : b.Icon.Base64,
+            'typeImage' : b.Icon.TypeImage,
+            'scale' : b.Icon.Scale,
+            'displayName' : b.Icon.DisplayName,
+            # 'kindAction' : {
+            #     'name' : kind_action.Name,
+            #     'description' : kind_action.Description,
+            #     'score' : kind_action.Score
+            # }
+        }
+        if kind_action:
+            bin['kindAction'] = {
+                'name' : kind_action[0].Name,
+                'description' : kind_action[0].Description,
+                'score' : kind_action[0].Score
+            }
+        res_bins.append(bin)
+    if bins:
+        data = {
+            'bins' : list(res_bins)
+        }
+        return JsonResponse(data)
+    return HttpResponse(status=204)
+
+def report_map(request):
+    if request.method != 'GET':
+        return HttpResponse(status=403)
+    actions = KindAction.objects.prefetch_related('Report').filter(BinDevice__Id=None)
+    if not actions:
+        return HttpResponse(status=204)
+    res_actions = []
+    for a in actions:
+        res_actions.append({
+            'id' : a.id,
+            'name' : a.Name,
+            'description' : a.Description,
+            'score' : a.Score,
+            'startDatetime' : a.StartDateValidation,
+            'b64' : a.Report.Icon.Base64,
+            'longitude' : a.Report.LongitudePosition,
+            'latitude': a.Report.LatitudePosition,
+        })
+    return JsonResponse({
+        'reports' : res_actions
+    })

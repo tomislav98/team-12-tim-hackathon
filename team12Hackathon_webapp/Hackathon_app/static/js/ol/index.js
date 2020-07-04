@@ -22,7 +22,7 @@
 //
 // iconFeature2.setStyle(iconStyle);
 
-let features = [];
+let binFeatures = [];
 const source = new ol.source.Vector({});
 
 const clusterSource = new ol.source.Cluster({
@@ -42,12 +42,12 @@ const vector = new ol.layer.Vector({
         if (!style) {
             style = new ol.style.Style({
                 image: new ol.style.Circle({
-                    radius: 10,
+                    radius: 20,
                     stroke: new ol.style.Stroke({
                         color: '#fff'
                     }),
                     fill: new ol.style.Fill({
-                        color: '#3399CC'
+                        color: '#4dd49c'
                     })
                 }),
                 text: new ol.style.Text({
@@ -79,6 +79,44 @@ const map = new ol.Map({
         zoom: 18
     })
 });
+var selected = null;
+map.on('pointermove', function (e) {
+    var element = popup.getElement();
+    $(element).popover('hide');
+    if (selected !== null) {
+        selected.setStyle(undefined);
+        selected = null;
+    }
+
+    let hit = map.forEachFeatureAtPixel(e.pixel, function (f) {
+        selected = f;
+        console.log(f.get('features').length);
+        console.log(f.get('features')[0].get('bbInfo'));
+        const infoFeature = f.get('features')[0].get('bbInfo');
+        if (f.get('features') && f.get('features').length === 1) {
+
+            var coordinate = ol.proj.fromLonLat([infoFeature['longitude'], infoFeature['latitude']]);
+            var hdms = ol.coordinate.toStringHDMS(ol.proj.fromLonLat(coordinate));
+            $(element).attr('title', infoFeature['displayName']);
+            popup.setPosition(coordinate);
+            $(element).popover({
+                placement: 'top',
+                animation: false,
+                html: true,
+                content: `<p style="font-weight: bold">${infoFeature['kindAction']['name']}</p><p>${infoFeature['kindAction']['description']}</p><p>${infoFeature['kindAction']['score']} coin</p>`
+
+            });
+            $(element).popover('show');
+
+        }
+        return true;
+    });
+    if (hit) {
+        this.getTargetElement().style.cursor = 'pointer';
+    } else {
+        this.getTargetElement().style.cursor = 'default';
+    }
+});
 
 let dblClickInteraction;
 // find DoubleClickZoom interaction
@@ -92,13 +130,30 @@ if (dblClickInteraction) {
     map.removeInteraction(dblClickInteraction);
 }
 
+const popup = new ol.Overlay({
+    element: document.getElementById('popup')
+});
+map.addOverlay(popup);
+
+
+// map.on('click', function(evt) {
+//   var element = popup.getElement();
+//   var coordinate = evt.coordinate;
+//   var hdms = ol.coordinate.toStringHDMS(ol.proj.toLonLat(coordinate));
+//   $(element).popover('hide');
+//   popup.setPosition(coordinate);
+//   $(element).popover({
+//     placement: 'top',
+//     animation: false,
+//     html: true,
+//     content: '<p>The location you clicked was:</p><code>' + hdms + '</code>'
+//   });
+//   $(element).popover('show');
+// });
 
 $.ajax({
-    url: '/map',
+    url: '/map/bins',
     type: 'GET',
-    data: {
-        'bins': 100
-    },
     dataType: 'json',
     success: function (data) {
         console.debug(data);
@@ -108,20 +163,53 @@ $.ajax({
                     geometry: new ol.geom.Point(ol.proj.fromLonLat([f['longitude'], f['latitude']])),
                     name: 'Null Island'
                 });
-                const typeImage = f['typeImage'] === 0 ? 'png' : 'svg';
+                const typeImage = f['typeImage'] === 0 ? 'svg+xml' : 'png';
                 const iconStyle = new ol.style.Style({
                     image: new ol.style.Icon({
                         src: `data:image/${typeImage};base64,${f['b64']}`,
-                        scale: 0.1
+                        scale: f['scale']
                     })
                 });
                 iconFeature.setStyle(iconStyle);
-                features.push(iconFeature);
+                iconFeature.set('bbInfo', f);
+                binFeatures.push(iconFeature);
             });
-            vector.getSource().getSource().addFeatures(features);
+            vector.getSource().getSource().addFeatures(binFeatures);
         }
 
 
+    },
+    error: function (request, error) {
+        console.error("Request: " + JSON.stringify(request));
+    }
+});
+
+$.ajax({
+    url: '/map/reports',
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+        console.debug(data);
+        if (data && 'reports' in data && data['reports'].length) {
+            console.debug(data['reports']);
+            data['reports'].forEach(f => {
+                const iconFeature = new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat([f['longitude'], f['latitude']])),
+                    name: 'Null Island'
+                });
+                const typeImage = f['typeImage'] === 0 ? 'svg+xml' : 'png';
+                const iconStyle = new ol.style.Style({
+                    image: new ol.style.Icon({
+                        src: `data:image/${typeImage};base64,${f['b64']}`,
+                        scale: f['scale']
+                    })
+                });
+                iconFeature.setStyle(iconStyle);
+                iconFeature.set('bbInfo', f);
+                binFeatures.push(iconFeature);
+            });
+            vector.getSource().getSource().addFeatures(binFeatures);
+        }
     },
     error: function (request, error) {
         console.error("Request: " + JSON.stringify(request));

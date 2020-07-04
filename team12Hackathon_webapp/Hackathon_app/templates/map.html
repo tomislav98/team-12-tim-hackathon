@@ -9,6 +9,12 @@
  {% block content %}
 
 <div id="map" class="map"></div>
+     <div style="display: none;">
+      <!-- Clickable label for Vienna -->
+      <div id="marker" title="Marker"></div>
+      <!-- Popup -->
+      <div id="popup" title="Welcome to OpenLayers"></div>
+    </div>
      <script src="{% static 'js/ol/index.js' %}"></script>
 
   {% endblock %}
