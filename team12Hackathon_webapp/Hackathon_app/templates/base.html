@@ -1,0 +1,414 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>{% block title %} Homepage {% endblock %}</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard_tools/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    <link rel="stylesheet" href="{% static '/css/ol/ol.css' %}">
+    <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/card.css' %}">
+      <link rel="stylesheet" href="{% static '/css/drag_and_drop.css' %}">
+<script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/ol/ol.js' %}"></script>
+<style>
+      .map {
+        height: 82vh;
+        width: 80vw;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+
+</head>
+
+<body style="background-color: #e6ebfa;">
+<nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand custom-brand  col-md-3 col-lg-2 mr-0 px-3" href="#" ><img src="{% static '/svg/logo-bbetter.svg' %}" alt=""></a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-75" type="text" placeholder="Search" aria-label="Search">
+
+
+
+    <ul class="navbar-nav px-1">
+        <li class="nav-item text-nowrap">
+            <img src="{% static '/svg/icon-coin.svg' %}" alt="">
+        </li>
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:150%;"><p class="customMarginBar">2140</p></span>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:130%;"><p class="customMarginBar">I tuoi coin</p></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+
+    <ul class="navbar-nav px-1">
+        <li class="nav-item text-nowrap">
+            <img src="{% static '/svg/icon-segnalazioni.svg' %}" alt="">
+        </li>
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:150%;"><p class="customMarginBar">43</p></span>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:130%;"><p class="customMarginBar">Le tue segnalazioni</p></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+    <ul class="navbar-nav px-1">
+        <li class="nav-item text-nowrap">
+            <img src="{% static '/svg/icon-mission.svg' %}" alt="">
+        </li>
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:150%;"><p class="customMarginBar">3</p></span>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+              <span style="font-size:130%;"><p class="customMarginBar">Mission completed</p></span>
+
+        </li>
+    </ul>
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item nav-item-custom-padding text-nowrap">
+              <span style="font-size:250%;"><i class="far fa-bell"></i></span>
+        </li>
+    </ul>
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <img src="{% static '/svg/avatar.jpg' %}" class="rounded-circle" alt="Cinque Terre" style="width: 3rem;">
+        </li>
+    </ul>
+
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="{% url  'logout' %}">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="width: 12%;">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item nav-item-custom-padding">
+                        <a class="nav-link active" href="{% url 'dashboard'%}">
+                            <span data-feather="home"></span>
+
+                            Overview <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-item-custom-padding">
+                        <a class="nav-link" href="{% url 'map'%}">
+                          <img src="{% static '/svg/icon-mappa-menu.svg' %}" alt="">
+                            <!-- <span data-feather="file"></span> -->
+                            La tua città
+                        </a>
+                    </li>
+                    <li class="nav-item nav-item-custom-padding">
+                        <a class="nav-link" href="{% url 'missions'%}">
+                            <img src="{% static '/svg/like.svg' %}" alt="" style="  margin: -8% 0 0 0;">
+
+                            <!-- <span data-feather="shopping-cart"></span> -->
+                            Missioni
+                        </a>
+                    </li>
+                    <li class="nav-item nav-item-custom-padding">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Coin e premi
+                        </a>
+                    </li>
+                    <li class="nav-item nav-item-custom-padding">
+                        <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Community
+                        </a>
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 custom-margin">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom background_color">
+                <h1 class="h2">{% block title_1 %} Homepage {% endblock %}</h1>
+            </div>
+
+
+
+            {% block content %}
+                <!-- Andrea part -->
+
+
+
+            {% endblock %}
+
+
+{#            <footer class="container">#}
+{#                <p class="float-right"><a href="#">Back to top</a></p>#}
+{#                <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>#}
+{#            </footer>#}
+
+
+        </main>
+    </div>
+</div>
+
+<div class="dropdown fixed-position-menu ">
+    <button type="button" class="btn btn-primary btn-primary-team12 btn-circle btn-xl dropdown-toggle my-dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuButton">
+        <i class="fa fa-plus"></i>
+    </button>
+{#  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#    Dropdown button#}
+{#  </button>#}
+  <div class="dropdown-menu content-dropdown-custom" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" data-toggle="modal" data-target="#first-step-modal"  href="#">Fai una segnalazione</a>
+    <a class="dropdown-item" data-toggle="modal" data-target="#second-step-modal" href="#">Trova un cestino di raccolta</a>
+    <a class="dropdown-item" data-toggle="modal" data-target="#third-step-modal" href="#">Scala la classifica</a>
+  </div>
+</div>
+
+<!-- Main Modal -->
+<div class="modal fade" id="first-step-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <span><p style="text-align:center; font-size:150%; margin: 0 0 0 0;">Hai qualcosa da segnalare?
+            </p>
+            </span>
+            <span><p style="text-align:center; font-size:100%; margin: 0 0 0 0;">Invia la tua segnalazione in meno di 1 minuto.
+          </p>
+          </span>
+          <span style=" font-weight: bold;"><p style="text-align:center; font-size:100%;">Per te subito 1 coin*
+            <img src="{% static '/svg/icon-coin.svg' %}" alt="">
+        </p>
+        </span>
+            </div>
+            <div class="w-100"></div>
+          </div>
+        </div>
+
+
+
+        <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+          <div class="form-inline">
+            <div class="form-group">
+              <input type="file" name="files[]" id="js-upload-files" multiple>
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit" style="display: none;">Upload files</button>
+          </div>
+        </form>
+
+
+        <div class="upload-drop-zone" id="drop-zone">
+         <span> <p>Trascina qui i tuoi file non più pesanti di 5MB </p> </span>
+       </div>
+       <div class="col text-center">
+         <button type="button" class="btn btn-primary">Avanti</button>
+       </div>
+       <div class="col text-center" style="margin-top: 5%;">
+        <span> <p>*Appena il Comune verificherà la tua segnalazione ti verranno accreditati nuovi coin per ringraziarti! Ricorda, le tue buone azioni sono preziose per tutti. </p> </span>
+       </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+        <button type="button" class="btn btn-primary">Avanti</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Second Modal -->
+<div class="modal fade" id="second-step-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <span><p style="text-align:center; font-size:150%; margin: 0 0 0 0;">Ci siamo quasi
+            </p>
+            </span>
+            <span><p style="text-align:center; font-size:100%; margin: 0 0 0 0;">Ci siamo quasi
+            Conferma la categoria della segnalazione <br>
+            e aggiungi un messaggio se serve.
+          </p>
+          </span>
+          <span><p style="text-align:center; font-size:80%; margin-top:5%;">Non volevi segnalare questo? <a href="#">Cambia categoria</a>
+
+        </p>
+        </span>
+            </div>
+            <div class="w-100"></div>
+          </div>
+        </div>
+
+
+
+        <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+          <div class="form-inline">
+            <div class="form-group">
+              <input type="file" name="files[]" id="js-upload-files" multiple>
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+          </div>
+        </form>
+
+
+        <div class="upload-drop-zone" id="drop-zone">
+          <div class="container">
+            <div class="row">
+          <div class="col-md-12 ">
+         <img src="{% static '/svg/icon-segnalazione-street.svg' %}" alt="">
+          </div>
+
+
+
+          </div>
+         </div>
+       </div>
+       <div class="col text-center" style="margin-top: 5%;">
+        <span> <p>Vuoi dare più informazioni su questa segnalazione? <br> <a href="#">Aggiungi un messaggio</a></p></span>
+       </div>
+       <div class="col text-center">
+         <button type="button" class="btn btn-success">Invia segnalazione</button>
+       </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+        <button type="button" class="btn btn-primary">Avanti</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Third and last Modal -->
+<div class="modal fade" id="third-step-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <span><p style="text-align:center; font-size:150%; margin: 0 0 0 0;">Hai vinto la tua segnalazione!
+            </p>
+            </span>
+            <span><p style="text-align:center; font-size:100%; margin: 0 0 0 0;">
+            Grazie di aver contribuito a migliorare la città per te e per gli altri.
+            <br>
+            Continua così e scala la classifica dei cittadini più attivi!
+          </p>
+          </span>
+            </div>
+
+            <div class="w-100"></div>
+              <div class="col">
+              </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <img src="{% static '/svg/icon-1-coin.svg'%}" alt="" class="center_image">
+          </div>
+        </div>
+
+
+
+
+
+
+
+       <div class="col text-center">
+         <button type="button" class="btn btn-primary">Avanti</button>
+       </div>
+       <div class="col text-center" style="margin-top: 5%;">
+        <span> <p>Per il momento non hai altre segnalazioni?
+          <br>
+            <a href="#">Torna alla tua dashboard </a></p> </span>
+       </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+        <button type="button" class="btn btn-primary">Avanti</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/drag_drop_action.js' %}"></script>
+<script src="{% static '/js/all.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="{% static 'dashboard_tools/js/dashboard.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+</html>

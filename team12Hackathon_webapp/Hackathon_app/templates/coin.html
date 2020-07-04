@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Coin e premi {% endblock %}
+
+{% block title_1 %} Coin e premi {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h3>Le tue buone azioni sono preziose</h3>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+      <span style="font-size:120%;"><p>Scopri cosa puoi ottenere con i tuoi coin e quanti coin
+        <br>
+      ti mancano per il tuo premio preferito!</p></span>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-3">
+ <div class="col mb-4">
+<div class="card bg-dark text-white  custom_card_radius">
+  <img src="{% static '/svg/avatar123.svg'%}" class="card-img" alt="..." width="200" height="200" >
+  <div class="card-img-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+            <img class="card-title" src="{% static '/svg/icon-star-preferiti.svg'%}" alt="">
+        </div>
+        <div class="col-md-3">
+          <span>250</span>
+            <img class="card-title" src="{% static '/svg/icon-coin.svg'%}" alt="" style="margin-bottom: 0;">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+            <p class="card-text" style="margin-top: 10%; font-size: 1.2em">SCONTO -15%</p>
+        </div>
+        <div class="w-100"></div>
+        <div class="col">
+            <p class="card-text" style=" font-size: 1.5em">Degustazione per due</p>
+        </div>
+        <div class="w-100"></div>
+        <div class="col">
+            <p class="card-text" style=" font-size: 1.2em">Villa Oreste-Soave</p>
+        </div>
+      </div>
+    </div>
+    <!-- <p class="card-text" style="margin-top: 10%; font-size: 1.4em">SCONTO -15% <br>Degustazione per due <br> Villa Oreste-Soave</p> -->
+  </div>
+</div>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
