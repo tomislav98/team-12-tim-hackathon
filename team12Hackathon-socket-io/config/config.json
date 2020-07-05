@@ -1,0 +1,52 @@
+{
+  "development": {
+    "hostname" : "localhost",
+    "port" : 5555,
+    "rabbitmq": {
+      "url": "localhost",
+      "username": "rabbitmq",
+      "password": "rabbitmq",
+      "exchanges": [
+        {
+          "name": "team12-messages",
+          "queueConfig": {
+            "durable": false,
+            "exclusive": false,
+            "autoDelete": true,
+            "arguments": {
+              "x-max-length": 100,
+              "x-overflow": "reject-publish",
+              "x-message-ttl": 30000
+            }
+          }
+        }
+      ]
+    }
+  },
+  "staging": {
+  },
+  "production": {
+    "hostname" : "0.0.0.0",
+    "port" : 5000,
+    "rabbitmq": {
+      "url": "172.16.1.102",
+      "username": "rabbitmq",
+      "password": "rabbitmq",
+      "exchanges": [
+        {
+          "name": "team12-messages",
+          "queueConfig": {
+            "durable": false,
+            "exclusive": false,
+            "autoDelete": true,
+            "arguments": {
+              "x-max-length": 100,
+              "x-overflow": "reject-publish",
+              "x-message-ttl": 30000
+            }
+          }
+        }
+      ]
+    }
+  }
+}
