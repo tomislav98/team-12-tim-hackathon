@@ -111,7 +111,7 @@
 
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <img src="{% static '/svg/avatar.jpg' %}" class="rounded-circle" alt="Cinque Terre" style="width: 3rem;">
+            <img src="{% static '/svg/profile-avatar.jpg' %}" class="rounded-circle" alt="Cinque Terre" style="width: 3rem;">
         </li>
     </ul>
 
@@ -130,7 +130,7 @@
                 <ul class="nav flex-column">
                     <li class="nav-item nav-item-custom-padding">
                         <a class="nav-link active" href="{% url 'dashboard'%}">
-                            <span data-feather="home"></span>
+                              <img src="{% static '/svg/icon-dashboard.svg' %}" alt="">
 
                             Overview <span class="sr-only">(current)</span>
                         </a>
@@ -152,7 +152,7 @@
                     </li>
                     <li class="nav-item nav-item-custom-padding">
                         <a class="nav-link" href="{% url 'coin'%}">
-                            <span data-feather="bar-chart-2"></span>
+                              <img src="{% static '/svg/icon-coin-menu.svg' %}" alt="">
                             Coin e premi
                         </a>
                     </li>
@@ -164,7 +164,7 @@
                     </li>
                     <li class="nav-item nav-item-custom-padding">
                         <a class="nav-link" href="#">
-                            <span data-feather="users"></span>
+                            <img src="{% static '/svg/icon-community-menu.svg' %}" alt="">
                             Community
                         </a>
                     </li>
