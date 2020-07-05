@@ -12,3 +12,5 @@ team12Hackathon_webapp/Hackathon_app/__pycache__/
 *.pyc
 
 team12Hackathon_webapp/configuration.env
+team12Hackathon-socket-io/node_modules/
+team12Hackathon-socket-io/node_modules/*

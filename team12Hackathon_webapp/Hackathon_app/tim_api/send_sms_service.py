@@ -1,15 +1,10 @@
 import os
 import requests
 
-class SendSmsService:
+from Hackathon_app.tim_api.tim_api_service import TimApiService
 
-    def __init__(self):
-        self.api_token = os.environ.get('API_TOKEN_TIM')
-        self.api_url = os.environ.get('API_URL_TIM')
-        if not self.api_token:
-            raise ValueError('Api tim token is empty.')
-        if not self.api_url:
-            raise ValueError('Api url is empty.')
+
+class SendSmsService(TimApiService):
 
     def send_sms(self, phone_number, content):
         if not content:
