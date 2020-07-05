@@ -17,6 +17,8 @@ Dopodiche`, lanciare l'applicaitvo il docker-compose:
 
 Recarsi alla pagina **http://127.0.0.1:7766**
 
+Credenziali di accesso webapp admin **admin / A89TmbUycYKZheP63JY** (anche per django-admin http://127.0.0.1:7766/admin)
+
 ## Dispatcher e SocketIO server
 
 All'interno delle cartelle *team12Hackathon-dispatcher* e *team12Hackathon-socket-io* lanciare lo script per la build del docker:
