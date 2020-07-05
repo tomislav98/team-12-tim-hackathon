@@ -33,7 +33,7 @@
 
 <body style="background-color: #e6ebfa;">
 <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand custom-brand  col-md-3 col-lg-2 mr-0 px-3" href="#" ><img src="{% static '/svg/logo-bbetter.svg' %}" alt=""></a>
+    <a class="navbar-brand custom-brand  col-md-3 col-lg-2 mr-0 px-3" href="#" ><img src="{% static '/svg/photo_2020-07-05_14-04-52.jpg' %}" alt="" width="180" height="45" style="margin-left: 4%;"></a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
     <input class="form-control form-control-dark w-75" type="text" placeholder="Search" aria-label="Search">
 
 
-
+        {% block position %} {% endblock %}
     <ul class="navbar-nav px-1">
         <li class="nav-item text-nowrap">
             <img src="{% static '/svg/icon-coin.svg' %}" alt="">
@@ -58,6 +58,7 @@
 
         </li>
     </ul>
+
 
 
 
@@ -153,6 +154,12 @@
                         <a class="nav-link" href="{% url 'coin'%}">
                             <span data-feather="bar-chart-2"></span>
                             Coin e premi
+                        </a>
+                    </li>
+                    <li class="nav-item nav-item-custom-padding">
+                        <a class="nav-link" href="{% url 'coin'%}">
+                            <img src="{% static '/svg/icon-gadget-menu.svg' %}" alt="" >
+                            Gadget smart
                         </a>
                     </li>
                     <li class="nav-item nav-item-custom-padding">
