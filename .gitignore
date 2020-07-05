@@ -10,3 +10,5 @@ team12Hackathon-dispatcher/.idea/*
 team12Hackathon_webapp/Hackathon_app/__pycache__/
 
 *.pyc
+
+team12Hackathon_webapp/configuration.env
