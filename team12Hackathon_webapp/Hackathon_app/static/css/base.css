@@ -113,3 +113,13 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.23);
   .custom-margin{
     margin-left: 15% !important;
   }
+
+
+.card-img-overlay {
+  background-color: rgba(#000, 0.4);
+}
+
+
+.custom-card-image{
+  margin-bottom: 5%;
+}
