@@ -1,12 +1,17 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
 from Hackathon_app.models import KindMission, ReportMap
 import json
 # Create your views here.
 from Hackathon_app.models import KindAction
 from Hackathon_app.submodels.iot_models import BinDevice
 from django_restful_admin import admin as api_admin
+
+from Hackathon_app.tim_api.object_localization_service import ObjectLocalizationService
+
 
 @login_required(login_url='/accounts/login/')
 def homepage(request):
@@ -101,3 +106,12 @@ def report_map(request):
     return JsonResponse({
         'reports' : res_actions
     })
+
+@csrf_exempt
+def detect_obj_from_image(request):
+    if request.method != 'POST':
+        return HttpResponse(status=403)
+    file = request.FILES['file']
+    detect_api = ObjectLocalizationService()
+    name, _ = detect_api.detect_object(file.read())
+    return JsonResponse({'match' : True, 'typeObject' : name})

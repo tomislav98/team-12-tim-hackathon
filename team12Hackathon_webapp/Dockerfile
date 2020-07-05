@@ -18,6 +18,12 @@ COPY . /code/
 
 COPY start.sh /code/
 
+# insert here your api tim url
+ENV API_URL_TIM=""
+
+# insert here your api token
+ENV API_TOKEN_TIM=""
+
 RUN chmod +x start.sh
 
 CMD ["sh" , "-c", "./start.sh"]

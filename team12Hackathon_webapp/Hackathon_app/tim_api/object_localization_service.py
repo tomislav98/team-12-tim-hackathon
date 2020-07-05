@@ -5,9 +5,9 @@ import requests
 from Hackathon_app.tim_api.tim_api_service import TimApiService
 
 
-class SendSmsService(TimApiService):
+class ObjectLocalizationService(TimApiService):
 
-    def detect_object(self, base64_file:str):
+    def detect_object(self, base64_file):
         payload = {
                 "requests": [
                     {
