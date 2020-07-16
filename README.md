@@ -26,7 +26,7 @@ All'interno delle cartelle *team12Hackathon-dispatcher* e *team12Hackathon-socke
     ./build-docker.sh
 per lanciare il servizio:
 
-    run-image.sh
+    ./run-image.sh
     
 ## RabbitMQ
 
